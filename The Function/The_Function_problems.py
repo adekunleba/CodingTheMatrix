@@ -68,19 +68,53 @@ def row(p, n):
         result.append(p)
     return result
 
-comprehension_with_row = ...
+#Couldn't understand what this area is asking us to do
+#comprehension_with_row = ...
 
-comprehension_without_row = ...
+#comprehension_without_row = ...
 
 
 
 ## 4: (Problem 0.8.10) Probability Exercise 1
-Pr_f_is_even = ...
-Pr_f_is_odd  = ...
+prob  = {1 : 0.5, 2: 0.5, 3: 0.5, 4: 0.1, 5: 0.1, 6:0.1}
+
+#Probability of even number output
+v = 0
+for x in prob:
+    if (x+1) % 2 == 0:
+        v += prob[x]
+
+Pr_f_is_even = v
+
+#Probability of odd number output
+v = 0
+for x in prob:
+    if (x+1) % 2 != 0:
+        v += prob[x]
+
+Pr_f_is_odd  = v
 
 
 
 ## 5: (Problem 0.8.11) Probability Exercise 2
-Pr_g_is_1    = ...
-Pr_g_is_0or2 = ...
+values = {1,2,3,4,5,6,7}
+prob_dict = {1:0.2, 2:0.2, 3:0.2, 4:0.1, 5:0.1, 6:0.1, 7:0.1}
+
+#Probability of output = 1
+v = 0
+for x in values:
+    if x % 3 == 1:
+        v += prob_dict[x]
+
+Pr_g_is_1    = v
+
+#Probability of output = {0, 2}
+v = 0
+for x in values:
+    if x % 3 == 2:
+        v += prob_dict[x]
+    elif x % 3 == 0:
+        v += prob_dict[x]
+
+Pr_g_is_0or2 = v
 
