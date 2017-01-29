@@ -76,7 +76,7 @@ def row(p, n):
 
 
 ## 4: (Problem 0.8.10) Probability Exercise 1
-prob  = {1 : 0.5, 2: 0.5, 3: 0.5, 4: 0.1, 5: 0.1, 6:0.1}
+prob  = {1 : 0.5, 2: 0.2, 3: 0.1, 5: 0.1, 6:0.1}
 
 #Probability of even number output
 v = 0
