@@ -29,4 +29,21 @@ plot((0.5j * z for z in S), 4) #rotate by 180 and reduce space btw points
 
 #create a new plot in which the points of S are rotated by 90 degrees, scaled 
 #by 1/2, and then shifted down by one unit and to the right two units
-plot((2 +1j + (-0.5j * z) for z in S), 4)
+plot((2 - 1j + (0.5j * z) for z in S), 4)  #Also gives correct answer
+plot(((z*1j/2)+2-1j for z in S), 4) #Correct answer
+
+#Given an image img.png
+from image import *
+file = file2image("img01.png")
+
+#Calculat the height and width of image
+r = len(file) #gives the height
+c = len(file[0]) #Gives the width
+
+pts = [x+(r-y)*1j for x in range(c) for y in range(r)[::-1] for \
+       intensity in file[y][x] if intensity < 120]
+
+#Plotting the image
+plot(pts, r)
+
+#Function z map to S to center S to the origin
