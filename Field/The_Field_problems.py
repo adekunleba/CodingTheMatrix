@@ -19,7 +19,7 @@ def myFilter(L, num):
       >>> myFilter([10,15,20,25],10)
       [15, 25]
     '''
-    pass
+    return [x for x in L if x % 2 != 0]
 
 
 
@@ -32,8 +32,12 @@ def my_lists(L):
     >>> my_lists([0,3])
     [[], [1, 2, 3]]
     '''
-    pass
-
+#    list_L = []
+#
+#    for x in L:
+#        list_L.append(list(range(1, x+1)))
+#    return list_L
+    return [list(range(1, x+1)) for x in L]
 
 
 ## 3: (Problem 1.7.3) Python Comprehensions: Function Composition
@@ -55,7 +59,14 @@ def myFunctionComposition(f, g):
       >>> myFunctionComposition(a,b) == {'x':'twentyfour','y':'twentyfive'}
       True
     '''
-    pass
+    
+#    dict_value = {}
+#    for k,v in f.items():
+#        for a,b in g.items():
+#           if v == a:
+#               dict_value[k] = g[a]
+#    return dict_value
+    return {k:b for k,v in f.items() for a,b in g.items() if v==a}
 
 
 
@@ -73,7 +84,10 @@ Be sure your procedure works for the empty list.
       >>> mySum([3,5,10])
       18
     '''
-    pass
+    sum_L = 0
+    for x in L:
+        sum_L += x
+    return sum_L
 
 
 
@@ -91,7 +105,10 @@ Be sure your procedure works for the empty list.
       >>> myProduct([-3,2,4])
       -24
     '''
-    pass
+    mult_L = 1
+    for x in L:
+        mult_L *= x
+    return mult_L
 
 
 
@@ -110,7 +127,11 @@ Hint: The value of the Python expression float('infinity') is infinity.
     >>> myMin([0,3,5,-2,-5])
     -5
     '''
-    pass
+    min_L = 0
+    for x in L:
+        if x < min_L:
+            min_L = x
+    return min_L
 
 
 
@@ -128,7 +149,11 @@ Be sure your procedure works for the empty list.
     >>> myConcat(['what','is','up'])
     'whatisup'
     '''
-    pass
+    myConcat = ""
+
+    for x in L:
+        myConcat += x
+    return myConcat
 
 
 
@@ -146,7 +171,10 @@ Be sure your procedure works for the empty list.
     >>> myUnion([set(),{3,5},{3,5}])
     {3, 5}
     '''
-    pass
+    union_L = set()
+    for x in L:
+        union_L |= x
+    return union_L
 
 
 
@@ -175,7 +203,11 @@ def transform(a, b, L):
     >>> transform(3,2,[1,2,3])
     [5, 8, 11]
     '''
-    pass
+    value = []
+    for x in L:
+        tf = a*x+b
+        value.append(tf)
+    return value
 
 
 
