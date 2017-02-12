@@ -71,3 +71,62 @@ list_val = segment([3.5, 3], [0.5, 1])
 from plotting import plot
 
 plot(list_val, 4)
+
+
+#########REPRESENTING VECTORS################
+class Vec:
+    """
+    A class that maps function to a set of labels(Domains)
+    """
+    def __init__(self, labels, functions):
+        self.D = labels
+        self.f = functions
+
+        
+#instantiating the class in variable v
+v = Vec({'A', 'B', 'C'}, {'A':1})
+
+v.D
+#Out[18]: {'A', 'B', 'C'}
+
+v.f
+#Out[19]: {'A': 1}
+
+#Simple problem on the v
+for d in v.D:
+    if d in v.f:
+        print(v.f[d]) #Prints the value corresponding to the key in 
+        #f that satisfies the if-condition
+        
+def zero_vec(D):
+    """
+    set the value of a Vec set of items to zero
+    """
+    return Vec(D, {d:0 for d in D})
+    
+#Testing on zero_vec remember it uses the class Vec
+a = zero_vec({"C", "D", "E"})
+
+a.D
+#Out[26]: {'C', 'D', 'E'}
+
+a.f
+#Out[27]: {'C': 0, 'D': 0, 'E': 0}
+
+def set_item(v, d, val):
+    """
+    Set the value for a specific entry of Vec v 
+    """
+    v.f[d] = val
+
+def get_item(v, d):
+    """
+    Returns the value of an element(domain) in Vec v
+    """
+    return v.f[d] if d in v.f else 0
+
+#def scalar_mult(v, alpha):
+#    for d in v.D:
+#        if d in v.f:
+#            Vec(v.D, {d:v.f[d] * alpha})
+#    return v
