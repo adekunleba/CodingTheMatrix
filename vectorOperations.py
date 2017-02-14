@@ -125,8 +125,41 @@ def get_item(v, d):
     """
     return v.f[d] if d in v.f else 0
 
-#def scalar_mult(v, alpha):
-#    for d in v.D:
-#        if d in v.f:
-#            Vec(v.D, {d:v.f[d] * alpha})
-#    return v
+def scalar_mult(v, alpha):
+    return (Vec(v.D, {d:get_item(v, d) * alpha for d in v.D if d in v.f}))
+    
+def add(u, v):
+    return (Vec(v.D, {d:get_item(v, d) + get_item(u,d) for d in v.D}))
+
+####OBSERVATION###
+#I think usually in python definition for a loop you might usually need to
+#....define the data type then add the result of the element to it....YES
+
+def neg(v):
+    return(Vec(v.D, {d:get_item(v, d) * -1 for d in v.D if d in v.f}))
+def neg_2(v): return(Vec(v.D, {d: -get_item(v, d) for d in v.D if d in v.f}))
+def neg_3(v): return Vec(v.D, {key: -value for key, value in v.f.items()})
+
+
+#####Trying a GF2 ###########
+###Question: GF(2) vector addition practice: What is 1101 + 0111? (Note: it is the same as
+#              1101 − 0111.)
+from GF2 import one, zero
+
+s = (one, one, zero, one)
+
+y = (zero, one, one, one)
+
+
+answer = []
+for i in range(len(s)):
+    value = s[i] + y[i]
+    answer.append(value)
+    
+answer2 = []
+for i in range(len(s)):
+    value = s[i] - y[i]
+    answer2.append(value)
+    
+answer2 == answer
+####Out[78]: True

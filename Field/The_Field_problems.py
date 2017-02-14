@@ -19,7 +19,7 @@ def myFilter(L, num):
       >>> myFilter([10,15,20,25],10)
       [15, 25]
     '''
-    return [x for x in L if x % 2 != 0]
+    return [x for x in L if x % num != 0]
 
 
 
@@ -127,11 +127,11 @@ Hint: The value of the Python expression float('infinity') is infinity.
     >>> myMin([0,3,5,-2,-5])
     -5
     '''
-    min_L = 0
+    check_inf = float('infinity')
     for x in L:
-        if x < min_L:
-            min_L = x
-    return min_L
+        if x < check_inf:
+            check_inf = x
+    return check_inf
 
 
 
@@ -181,10 +181,10 @@ Be sure your procedure works for the empty list.
 ## 9: (Problem 1.7.10) Complex Addition Practice
 # Each answer should be a Python expression whose value is a complex number.
 
-complex_addition_a = ...
-complex_addition_b = ...
-complex_addition_c = ...
-complex_addition_d = ...
+complex_addition_a = 5+3j 
+complex_addition_b = 1j
+complex_addition_c = -1 + 0.001j
+complex_addition_d = 0.001+9j
 
 
 
@@ -212,7 +212,7 @@ def transform(a, b, L):
 
 
 ## 11: (Problem 1.7.13) GF(2) Arithmetic
-GF2_sum_1 = ... # answer with 0 or 1
-GF2_sum_2 = ...
-GF2_sum_3 = ...
+GF2_sum_1 = 1 # answer with 0 or 1
+GF2_sum_2 = 0
+GF2_sum_3 = 0
 
